@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://frank-adriano-website.github.io/sitemap.xml

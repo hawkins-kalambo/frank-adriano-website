@@ -3,15 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frank Adriano for FAFASA Speaker 2025 — transparency, fairness and student representation.">
+    <meta name="keywords" content="Frank Adriano, FAFASA Speaker, Mzuzu University, student elections, transparency, fairness, student representation">
+    <meta name="author" content="Frank Adriano">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#006B3F">
     <title>Frank Adriano – FAFASA Speaker 2025</title>
     <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usKu8zManzbperzvGExzFqLWw3c+q7MSt0M8+QXVectotrid03CF60K0prp8jxQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Social image for sharing -->
+    <meta property="og:image" content="assets/images/profile.svg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="assets/images/profile.svg">
+    <!-- Social / Open Graph -->
+    <meta property="og:title" content="Frank Adriano – FAFASA Speaker 2025">
+    <meta property="og:description" content="Support Frank Adriano for FAFASA Speaker — a voice for transparency, fairness and unity.">
+    <meta property="og:image" content="assets/images/profile.svg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Frank Adriano",
+      "jobTitle": "FAFASA Speaker Candidate",
+      "description": "Frank Adriano for FAFASA Speaker 2025 — transparency, fairness and student representation.",
+      "url": "https://frank-adriano-website.github.io",
+      "sameAs": [
+        "https://wa.me/265993054495",
+        "https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=10a9uckz",
+        "https://linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=frank-adriano-654294393",
+        "https://twitter.com/intent/tweet?text=I%20support%20%23FrankAdriano%20for%20FAFASA%20Speaker%202025!%20Transparency%2C%20fairness%2C%20unity.%20%23FAFASA%20%23Elections",
+        "https://www.facebook.com/share/1Aw4HVaDix/"
+      ],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Mzuzu University"
+      },
+      "knowsAbout": [
+        "Student Leadership",
+        "International Relations",
+        "Community Engagement",
+        "Transparency in Governance"
+      ]
+    }
+    </script>
 </head>
 <body>
 
     <!-- HEADER -->
-    <header>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header role="banner">
         <div class="logo">Frank Adriano</div>
-        <nav>
+        <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
             <ul>
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -24,34 +76,71 @@
         </nav>
     </header>
 
+    <main id="main" role="main">
+
     <!-- HERO SECTION -->
-    <section id="hero">
+    <section id="hero" role="region" aria-labelledby="hero-heading">
+        <div class="hero-bg-parallax"></div>
         <div class="hero-overlay"></div>
+        <div class="animated-vote-banner">
+            <span class="vote-text">🗳️ VOTE FOR FRANK ADRIANO AS SPEAKER 🗳️</span>
+        </div>
         <div class="hero-content">
-            <h1 class="hero-title">A Voice You Can Trust, A Speaker For All</h1>
+            <h1 id="hero-heading" class="hero-title">A Voice You Can Trust, A Speaker For All</h1>
             <p class="hero-subtitle">2025 FAFASA Elections – Frank Adriano</p>
+            <p class="hero-bio">Level 2 | Bachelor of Arts in International Relations & Diplomacy | Co-Founder, Mzuni Hope Initiative</p>
+            <div class="countdown-timer" id="countdownTimer">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="days">0</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="hours">0</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="minutes">0</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="seconds">0</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
             <div class="hero-buttons">
-                <a href="#manifesto" class="btn">Read My Manifesto</a>
+                <a href="#manifesto" class="btn primary-cta">Read My Manifesto</a>
                 <a href="#download" class="btn2">Download PDF</a>
-                <a href="https://wa.me/265993054495" class="btn-whatsapp" target="_blank">WhatsApp Support</a>
+                <a href="https://wa.me/265993054495" class="btn-whatsapp" target="_blank" aria-label="Open WhatsApp to support Frank">WhatsApp Support</a>
             </div>
         </div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about">
+    <section id="about" role="region" aria-labelledby="about-heading">
         <div class="about-container">
-            <img src="https://via.placeholder.com/300" alt="Profile Photo">
+            <img src="https://via.placeholder.com/300" alt="Frank Adriano profile photo" loading="lazy">
             <div class="about-text">
-                <h2>About Frank Adriano</h2>
-                <p>I am committed to a leadership that ensures service, structure, fairness, and transparency for every FAFASA student.</p>
+                <h2 id="about-heading">About Frank Adriano</h2>
+                <p><strong>Frank Adriano</strong>, affectionately known as "Bolsheviks," is a Level 2 student pursuing a Bachelor of Arts in International Relations and Diplomacy at Mzuzu University. As co-founder of the Mzuni Hope Initiative, he has demonstrated unwavering commitment to meaningful social impact and community engagement. With prior experience as a class representative, Frank has cultivated strong leadership skills and an ability to bridge diverse voices within the student community.</p>
+                <p>A passionate advocate for the power of communication and authentic leadership, Frank draws inspiration from Winston Churchill's wisdom: <em>"Of all the talent bestowed upon men, none is so precious as the gift of oratory. He who enjoys it wields power more durable than that of a great king."</em> This philosophy guides his approach to representing student interests with integrity, transparency, and purposeful dialogue.</p>
+                <p><strong>I am committed to a leadership that ensures service, structure, fairness, and transparency for every FAFASA student.</strong></p>
             </div>
         </div>
     </section>
 
+    <!-- LIVE SUPPORTER COUNTER -->
+    <section id="supporters" role="region" aria-labelledby="supporters-heading" class="supporters-section">
+        <h2 id="supporters-heading">Join the Movement</h2>
+        <div class="supporter-counter-card">
+            <div class="supporter-count" id="supporterCount">0</div>
+            <div class="supporter-label">Students Supporting Frank</div>
+            <p class="supporter-tagline">Be part of the change — your voice matters</p>
+        </div>
+    </section>
+
     <!-- MANIFESTO -->
-    <section id="manifesto">
-        <h2>Manifesto – What I Stand For</h2>
+    <section id="manifesto" role="region" aria-labelledby="manifesto-heading">
+        <h2 id="manifesto-heading">Manifesto – What I Stand For</h2>
 
         <div class="manifesto-box">
             <h3>Introduction & Core Values</h3>
@@ -77,8 +166,26 @@
     </section>
 
     <!-- COMMITMENT SECTION -->
-    <section id="commitment">
-        <h2>My Commitment</h2>
+    <section id="commitment" role="region" aria-labelledby="commitment-heading">
+        <h2 id="commitment-heading">My Commitment</h2>
+        <div class="commitment-counters">
+            <div class="counter-card floating-element">
+                <div class="counter-number" data-target="2">0</div>
+                <div class="counter-label">General Assemblies Per Semester</div>
+            </div>
+            <div class="counter-card floating-element">
+                <div class="counter-number" data-target="100">0</div>
+                <div class="counter-label">%<br>Transparency</div>
+            </div>
+            <div class="counter-card floating-element">
+                <div class="counter-number" data-target="12">0</div>
+                <div class="counter-label">Monthly Reports</div>
+            </div>
+            <div class="counter-card floating-element">
+                <div class="counter-number" data-target="100">0</div>
+                <div class="counter-label">%<br>Student Inclusion</div>
+            </div>
+        </div>
         <ul>
             <li>Fair and impartial leadership.</li>
             <li>Transparency and accountability always.</li>
@@ -87,34 +194,139 @@
         </ul>
     </section>
 
+    <!-- FAQ ACCORDION -->
+    <section id="faq" role="region" aria-labelledby="faq-heading" class="faq-section">
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-toggle" aria-expanded="false" aria-controls="faq-1">
+                    <span class="faq-question">What are your main commitments as Speaker?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div id="faq-1" class="faq-answer" hidden>
+                    <p>I commit to holding General Assemblies every semester, providing monthly expenditure reports, ensuring departmental representation, and amplifying all student voices. Transparency and fairness are core to my leadership.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-toggle" aria-expanded="false" aria-controls="faq-2">
+                    <span class="faq-question">How will you ensure transparency?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div id="faq-2" class="faq-answer" hidden>
+                    <p>Monthly expenditure reports will be published both online and physically on campus notices. All decisions affecting students will be communicated clearly and accessible to everyone.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-toggle" aria-expanded="false" aria-controls="faq-3">
+                    <span class="faq-question">What happens if I feel unheard?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div id="faq-3" class="faq-answer" hidden>
+                    <p>That's exactly why I'm running. I will ensure departmental representation so every voice is officially heard. You can reach out via WhatsApp, contact form, or during our bi-annual General Assemblies.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-toggle" aria-expanded="false" aria-controls="faq-4">
+                    <span class="faq-question">How can I support Frank's campaign?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div id="faq-4" class="faq-answer" hidden>
+                    <p>You can vote on election day (December 15, 2025), share this campaign on social media, contact Frank via WhatsApp, or simply spread the word about the need for transparent and fair leadership.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CONCLUSION -->
-    <section id="conclusion">
-        <h2>Conclusion</h2>
-        <p>This campaign is not only about me — it’s about us and our voices. I will build bridges, shape conversations, and stand boldly for unity and progress. Vote for:</p>
-        <h3><strong>FRANK ADRIANO FOR SPEAKER</strong></h3>
-        <p>A Voice You Can Trust. A Speaker For All.</p>
+    <section id="conclusion" role="region" aria-labelledby="conclusion-heading">
+        <h2 id="conclusion-heading">Conclusion</h2>
+        <p>This campaign is not only about me — it's about us and our voices. I will build bridges, shape conversations, and stand boldly for unity and progress.</p>
+    </section>
+
+    <!-- VOTE SECTION -->
+    <section id="vote" role="region" aria-labelledby="vote-heading">
+        <h2 id="vote-heading">🗳️ VOTE FOR FRANK ADRIANO AS SPEAKER 🗳️</h2>
+        <div class="vote-container">
+            <h3>Make Your Voice Heard</h3>
+            <p>Support leadership that prioritizes <strong>transparency, fairness, and unity</strong>.</p>
+            <p>Your vote matters. Together, we build a stronger FAFASA.</p>
+            <a href="#contact" class="vote-button" role="button" aria-label="Show your support for Frank Adriano">📢 Show Your Support</a>
+        </div>
     </section>
 
     <!-- DOWNLOAD PDF -->
-    <section id="download">
-        <h2>Download My Manifesto</h2>
-        <a class="btn" href="#" download>Download Manifesto (PDF)</a>
+    <section id="download" role="region" aria-labelledby="download-heading">
+        <h2 id="download-heading">📄 Download My Full Manifesto</h2>
+        <p>Read the complete details of my vision and commitments</p>
+        <a class="btn" href="assets/pdf/manifesto.pdf" download aria-label="Download Frank Adriano manifesto PDF">⬇️ Download PDF</a>
     </section>
 
     <!-- CONTACT SECTION -->
-    <section id="contact">
-        <h2>Support / Contact</h2>
-        <form action="mailto:frankadriano2004@gmail.com" method="post" enctype="text/plain">
-            <input type="text" placeholder="Your Name" name="name" required>
-            <input type="email" placeholder="Your Email" name="email" required>
-            <textarea placeholder="Message" name="message" required></textarea>
-            <button type="submit">Send</button>
+    <section id="contact" role="region" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Support / Contact</h2>
+        <form action="mailto:frankadriano2004@gmail.com" method="post" enctype="text/plain" id="contactForm" novalidate>
+            <label class="sr-only" for="name">Your Name</label>
+            <input id="name" type="text" placeholder="Your Name" name="name" required>
+            <span class="error-msg" id="nameError"></span>
+
+            <label class="sr-only" for="email">Your Email</label>
+            <input id="email" type="email" placeholder="Your Email" name="email" required>
+            <span class="error-msg" id="emailError"></span>
+
+            <label class="sr-only" for="message">Message</label>
+            <textarea id="message" placeholder="Message" name="message" required></textarea>
+            <span class="error-msg" id="messageError"></span>
+
+            <button type="submit" id="submitBtn">Send</button>
+            <span class="success-msg" id="successMsg"></span>
         </form>
-        <a href="https://wa.me/265993054495" class="btn-whatsapp" target="_blank">Chat on WhatsApp</a>
     </section>
 
+    <!-- CONNECT WITH ME - SOCIAL MEDIA -->
+    <section id="connect" role="region" aria-labelledby="connect-heading" class="connect-section">
+        <h2 id="connect-heading">Connect With Me</h2>
+        <p class="connect-subtitle">Follow and engage with Frank Adriano on social media</p>
+        <div class="social-icons-container">
+            <a href="https://wa.me/265993054495" class="social-icon-text whatsapp" target="_blank" aria-label="Chat on WhatsApp">
+                <svg class="social-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.025 0-2.031.313-2.87.9-.822.57-1.52 1.35-1.98 2.255-.462.906-.73 1.92-.73 2.957 0 1.039.272 2.054.735 2.957.457.909 1.151 1.69 1.965 2.27.834.583 1.835.896 2.88.896h.005c1.039 0 2.033-.313 2.87-.896.816-.582 1.51-1.361 1.97-2.27.463-.903.738-1.918.738-2.957 0-.037 0-.072-.001-.108v.108c0-1.036-.274-2.05-.735-2.955-.457-.906-1.151-1.689-1.968-2.256-.838-.587-1.845-.901-2.87-.901zm0-1.5c1.192 0 2.355.365 3.345 1.044 1.038.72 1.854 1.708 2.382 2.8.517 1.059.818 2.248.818 3.416 0 1.164-.301 2.352-.818 3.409-.528 1.099-1.344 2.085-2.382 2.809-.99.678-2.153 1.044-3.345 1.044-1.192 0-2.357-.366-3.345-1.044-1.038-.72-1.854-1.708-2.382-2.8-.517-1.059-.818-2.248-.818-3.416 0-1.164.301-2.352.818-3.41.528-1.099 1.344-2.085 2.382-2.809.99-.678 2.153-1.044 3.345-1.044"/>
+                </svg>
+                <span>WhatsApp</span>
+            </a>
+            <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=10a9uckz" class="social-icon-text instagram" target="_blank" aria-label="Follow Frank Adriano on Instagram">
+                <svg class="social-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm4.846-14.077c-.795 0-1.44.645-1.44 1.44s.645 1.44 1.44 1.44 1.44-.645 1.44-1.44-.645-1.44-1.44-1.44z"/>
+                </svg>
+                <span>Instagram</span>
+            </a>
+            <a href="https://linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=frank-adriano-654294393" class="social-icon-text linkedin" target="_blank" aria-label="Connect with Frank Adriano on LinkedIn">
+                <svg class="social-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+                </svg>
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://twitter.com/intent/tweet?text=I%20support%20%23FrankAdriano%20for%20FAFASA%20Speaker%202025!%20Transparency%2C%20fairness%2C%20unity.%20%23FAFASA%20%23Elections" class="social-icon-text twitter" target="_blank" aria-label="Share on Twitter">
+                <svg class="social-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Twitter logo">
+                    <path fill="currentColor" d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0012 7.77V8a4.5 4.5 0 008.1 3.1A9 9 0 012 7.3s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 001-2.1c0-.2 0-.5-.1-.8A7.72 7.72 0 0023 3z"/>
+                </svg>
+                <span>Twitter</span>
+            </a>
+            <a href="https://www.facebook.com/share/1Aw4HVaDix/" class="social-icon-text facebook" target="_blank" aria-label="Like Frank Adriano on Facebook">
+                <svg class="social-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                <span>Facebook</span>
+            </a>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- STICKY MOBILE VOTE BUTTON (FAB) -->
+    <a href="#contact" id="mobileFab" class="mobile-fab" aria-label="Vote for Frank Adriano - scroll to contact" title="Support Frank">🗳️ Vote</a>
+
     <!-- FOOTER -->
-    <footer>
+    <footer role="contentinfo">
         &copy; 2025 Frank Adriano. All Rights Reserved.
     </footer>
 
