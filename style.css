@@ -98,7 +98,6 @@ header {
 .university-logo {
     height: 40px;
     width: auto;
-    filter: brightness(0) invert(1);
     transition: var(--transition);
 }
 
