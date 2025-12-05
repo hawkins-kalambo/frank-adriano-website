@@ -380,9 +380,94 @@ document.addEventListener('DOMContentLoaded', () => {
     animateLiveSupporterCount();
     setupFaqAccordion();
     setupMobileFab();
+    setupShareButton();
     initLegacyToggle();
 });
 // end of DOMContentLoaded initialization
+
+// =======================
+// SHARE BUTTON FUNCTIONALITY
+// =======================
+function setupShareButton() {
+    const shareBtn = document.getElementById('shareBtn');
+    if (!shareBtn) return;
+
+    const shareData = {
+        title: 'Frank Adriano – FAFASA Speaker 2025',
+        text: 'Support Frank Adriano for FAFASA Speaker — a voice for transparency, fairness and unity. Vote for change!',
+        url: window.location.href
+    };
+
+    shareBtn.addEventListener('click', async () => {
+        try {
+            // Check if Web Share API is supported
+            if (navigator.share) {
+                await navigator.share(shareData);
+                showShareFeedback('Shared successfully!');
+            } else {
+                // Fallback: Copy to clipboard
+                await navigator.clipboard.writeText(shareData.url);
+                showShareFeedback('Link copied to clipboard!');
+            }
+        } catch (error) {
+            console.error('Error sharing:', error);
+            // Fallback for older browsers: manual copy
+            try {
+                const textArea = document.createElement('textarea');
+                textArea.value = shareData.url;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showShareFeedback('Link copied to clipboard!');
+            } catch (fallbackError) {
+                console.error('Fallback copy failed:', fallbackError);
+                showShareFeedback('Please copy the URL manually: ' + shareData.url);
+            }
+        }
+    });
+}
+
+function showShareFeedback(message) {
+    // Create a temporary feedback message
+    const feedback = document.createElement('div');
+    feedback.textContent = message;
+    feedback.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        z-index: 10000;
+        font-weight: bold;
+        animation: slideIn 0.3s ease-out;
+    `;
+
+    // Add slide-in animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    `;
+    document.head.appendChild(style);
+
+    document.body.appendChild(feedback);
+
+    // Remove after 3 seconds
+    setTimeout(() => {
+        feedback.style.animation = 'slideIn 0.3s ease-in reverse';
+        setTimeout(() => {
+            if (feedback.parentNode) {
+                feedback.parentNode.removeChild(feedback);
+            }
+        }, 300);
+    }, 3000);
+}
 
 // =======================
 // Legacy view toggle + simple typing animation
