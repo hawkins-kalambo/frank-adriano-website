@@ -1128,6 +1128,21 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .primary-cta:focus-vi
     font-weight: 500;
 }
 
+.contact-details {
+    margin-bottom: 30px;
+}
+
+.contact-details p {
+    font-size: 1.2rem;
+    color: var(--accent);
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.contact-details strong {
+    color: var(--white);
+}
+
 .social-icons-container {
     display: flex;
     flex-direction: row;
