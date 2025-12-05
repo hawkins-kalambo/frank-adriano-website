@@ -116,8 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // COUNTDOWN TIMER
 // =======================
 function startCountdown() {
-    // Election day: December 15, 2025 at 12:00 PM
-    const electionDay = new Date('2025-12-15T12:00:00').getTime();
+    // Election day: December 18, 2024 at 12:00 PM
+    const electionDay = new Date('2024-12-18T12:00:00').getTime();
 
     const updateCountdown = () => {
         const now = new Date().getTime();

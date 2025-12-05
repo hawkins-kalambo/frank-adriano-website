@@ -436,6 +436,23 @@ nav.primary-nav a:hover::after {
     margin-top: 40px;
 }
 
+.info-icon {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.info-icon i {
+    font-size: 2rem;
+    color: var(--accent);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.info-icon i:hover {
+    color: var(--accent-light);
+    transform: scale(1.1);
+}
+
 .btn, .btn2, .btn-whatsapp {
     display: inline-flex;
     align-items: center;
