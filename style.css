@@ -98,7 +98,7 @@ header {
     border: none;
     cursor: pointer;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
     padding: 8px;
 }
 
@@ -633,6 +633,43 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .primary-cta:focus-vi
 }
 
 /* ============================================
+   DOWNLOAD SECTION
+   ============================================ */
+#download {
+    padding: 100px 24px;
+    background: var(--white);
+    text-align: center;
+}
+
+#download h2 {
+    text-align: center;
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 60px;
+    font-weight: 900;
+    position: relative;
+}
+
+#download h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: var(--accent);
+    margin: 16px auto 0;
+    border-radius: 2px;
+}
+
+#download p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ============================================
    COMMITMENT SECTION
    ============================================ */
 #commitment {
@@ -1068,39 +1105,36 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .primary-cta:focus-vi
 
 .social-icons-container {
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
+    gap: 16px;
     animation: fadeInUp 0.8s ease-out;
 }
 
 .social-icon-text {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    padding: 28px 32px;
-    border-radius: 16px;
-    font-size: 1rem;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 0.85rem;
     font-weight: 700;
     color: var(--white);
     text-decoration: none;
     box-shadow: var(--shadow-md);
     border: 2px solid transparent;
     transition: var(--transition);
-    min-height: 56px;
 }
 
 .social-logo {
-    width: 28px;
-    height: 28px;
+    width: 16px;
+    height: 16px;
     display: block;
 }
 
 .social-icon-text span {
-    display: block;
-    font-size: 0.95rem;
+    display: none;
 }
 
 .social-icon-text.whatsapp {
@@ -1113,10 +1147,6 @@ a:focus-visible, button:focus-visible, .btn:focus-visible, .primary-cta:focus-vi
 
 .social-icon-text.linkedin {
     background: linear-gradient(135deg, #0077b5 0%, #005885 100%);
-}
-
-.social-icon-text.twitter {
-    background: linear-gradient(135deg, #1DA1F2 0%, #1A91DA 100%);
 }
 
 .social-icon-text.facebook {
@@ -1455,13 +1485,9 @@ footer {
     }
 
     .social-icon-text {
-        padding: 20px 24px;
-        flex-direction: row;
-        gap: 10px;
-    }
-
-    .social-icon-text span {
-        font-size: 0.9rem;
+        padding: 12px 16px;
+        flex-direction: column;
+        gap: 0;
     }
 
     .mobile-fab {
