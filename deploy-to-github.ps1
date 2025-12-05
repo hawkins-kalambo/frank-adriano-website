@@ -20,7 +20,7 @@ try { git commit -m "Initial commit - Frank Adriano Website" } catch { Write-Hos
 
 # Prompt for token
 $pat = Read-Host "Enter your GitHub Personal Access Token (will not be stored)"
-if (-not $pat) { Write-Host "No token provided — aborting."; exit 1 }
+if (-not $pat) { Write-Host "No token provided - aborting."; exit 1 }
 
 # Create repo via GitHub API
 $body = @{ name = $RepoName; description = "Frank Adriano Website"; private = $false } | ConvertTo-Json
