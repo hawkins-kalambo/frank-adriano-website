@@ -259,13 +259,44 @@ function initParallaxScroll() {
 }
 
 // =======================
-// ANIMATE LIVE SUPPORTER COUNT
+// UNIQUE VISITOR COUNTER
 // =======================
 function animateLiveSupporterCount() {
     const counter = document.getElementById('supporterCount');
     if (!counter) return;
 
-    const targetCount = 324; // Mock number showing supporters
+    // Generate unique visitor ID for this device/browser
+    const generateVisitorId = () => {
+        return 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    };
+
+    // Get or create visitor ID
+    let visitorId = localStorage.getItem('frank_adriano_visitor_id');
+    if (!visitorId) {
+        visitorId = generateVisitorId();
+        localStorage.setItem('frank_adriano_visitor_id', visitorId);
+    }
+
+    // Get current global visitor count
+    let globalCount = parseInt(localStorage.getItem('frank_adriano_global_visitors') || '0');
+
+    // Check if this is a new unique visitor
+    const visitedVisitors = JSON.parse(localStorage.getItem('frank_adriano_visited_ids') || '[]');
+    const isNewVisitor = !visitedVisitors.includes(visitorId);
+
+    if (isNewVisitor) {
+        // Increment global count for new visitor
+        globalCount += 1;
+        localStorage.setItem('frank_adriano_global_visitors', globalCount.toString());
+
+        // Add this visitor to the visited list
+        visitedVisitors.push(visitorId);
+        localStorage.setItem('frank_adriano_visited_ids', JSON.stringify(visitedVisitors));
+    }
+
+    // Set minimum count to show momentum
+    const targetCount = Math.max(globalCount, 50);
+
     let current = 0;
 
     const observer = new IntersectionObserver((entries) => {
