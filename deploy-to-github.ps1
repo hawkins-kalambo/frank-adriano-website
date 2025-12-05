@@ -18,8 +18,14 @@ if (-not (Test-Path .git)) { git init }
 git add .
 try { git commit -m "Initial commit - Frank Adriano Website" } catch { Write-Host "No changes to commit or commit failed." }
 
-# Prompt for token
-$pat = Read-Host "Enter your GitHub Personal Access Token (will not be stored)"
+# Read token from file
+if (Test-Path "temp_token.txt") {
+    $pat = Get-Content "temp_token.txt" -Raw
+    $pat = $pat.Trim()
+    Remove-Item "temp_token.txt" -Force
+} else {
+    $pat = Read-Host "Enter your GitHub Personal Access Token (will not be stored)"
+}
 if (-not $pat) { Write-Host "No token provided - aborting."; exit 1 }
 
 # Create repo via GitHub API
