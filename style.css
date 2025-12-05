@@ -112,8 +112,8 @@ header {
     border: 2px solid rgba(255, 255, 255, 0.3);
     cursor: pointer;
     flex-direction: column;
-    gap: 16px;
-    padding: 14px;
+    gap: 8px;
+    padding: 8px;
     border-radius: 12px;
     transition: var(--transition);
     backdrop-filter: blur(10px);
@@ -129,26 +129,20 @@ header {
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-    width: 40px;
+    width: 8px;
     height: 8px;
     background: var(--white);
-    border-radius: 4px;
+    border-radius: 50%;
     transition: var(--transition);
     display: block;
     content: '';
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
 }
 
-.nav-toggle[aria-expanded="true"] .hamburger::before {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.nav-toggle[aria-expanded="true"] .hamburger {
-    background: transparent;
-}
-
+.nav-toggle[aria-expanded="true"] .hamburger,
+.nav-toggle[aria-expanded="true"] .hamburger::before,
 .nav-toggle[aria-expanded="true"] .hamburger::after {
-    transform: translateY(-8px) rotate(-45deg);
+    opacity: 0;
 }
 
 nav.primary-nav {
