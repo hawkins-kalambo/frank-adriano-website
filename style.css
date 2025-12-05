@@ -111,13 +111,14 @@ header {
     background: rgba(255, 255, 255, 0.15);
     border: 2px solid rgba(255, 255, 255, 0.3);
     cursor: pointer;
-    flex-direction: column;
-    gap: 8px;
-    padding: 8px;
-    border-radius: 12px;
+    padding: 0;
+    border-radius: 50%;
     transition: var(--transition);
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 40px;
+    height: 40px;
+    position: relative;
 }
 
 .nav-toggle:hover {
@@ -137,13 +138,24 @@ header {
     display: block;
     content: '';
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
 }
 
-.nav-toggle[aria-expanded="true"] .hamburger,
-.nav-toggle[aria-expanded="true"] .hamburger::before,
-.nav-toggle[aria-expanded="true"] .hamburger::after {
-    opacity: 0;
+.hamburger {
+    transform: translate(-50%, -50%) rotate(0deg) translateY(10px);
 }
+
+.hamburger::before {
+    transform: translate(-50%, -50%) rotate(120deg) translateY(10px);
+}
+
+.hamburger::after {
+    transform: translate(-50%, -50%) rotate(240deg) translateY(10px);
+}
+
+
 
 nav.primary-nav {
     display: flex;
