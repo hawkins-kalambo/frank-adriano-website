@@ -120,7 +120,7 @@ header {
 .hamburger::before,
 .hamburger::after {
     width: 28px;
-    height: 3px;
+    height: 4px;
     background: var(--white);
     border-radius: 2px;
     transition: var(--transition);
