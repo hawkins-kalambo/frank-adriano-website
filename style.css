@@ -108,24 +108,35 @@ header {
 
 .nav-toggle {
     display: none;
-    background: none;
-    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     cursor: pointer;
     flex-direction: column;
-    gap: 8px;
-    padding: 8px;
+    gap: 16px;
+    padding: 14px;
+    border-radius: 12px;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: var(--accent);
+    transform: scale(1.05);
 }
 
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-    width: 28px;
-    height: 4px;
+    width: 40px;
+    height: 8px;
     background: var(--white);
-    border-radius: 2px;
+    border-radius: 4px;
     transition: var(--transition);
     display: block;
     content: '';
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
 }
 
 .nav-toggle[aria-expanded="true"] .hamburger::before {
