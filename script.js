@@ -294,29 +294,32 @@ function animateLiveSupporterCount() {
         localStorage.setItem('frank_adriano_visited_ids', JSON.stringify(visitedVisitors));
     }
 
-    // Set minimum count to show momentum
-    const targetCount = Math.max(globalCount, 50);
-
+    // Set minimum count to show momentum (increased to 500)
+    const initialTarget = Math.max(globalCount, 500);
     let current = 0;
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && current === 0) {
-                const increment = Math.ceil(targetCount / 40);
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= targetCount) {
-                        current = targetCount;
-                        clearInterval(timer);
-                    }
-                    counter.textContent = current;
-                }, 40);
-                observer.unobserve(entry.target);
+    // Function to animate to a target
+    const animateToTarget = (target, callback) => {
+        const increment = Math.ceil(target / 40);
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+                if (callback) callback();
             }
-        });
-    }, { threshold: 0.5 });
+            counter.textContent = current;
+        }, 40);
+    };
 
-    observer.observe(counter);
+    // Start animating immediately on page load
+    animateToTarget(initialTarget, () => {
+        // After reaching initial target, continue increasing every 30 seconds
+        setInterval(() => {
+            current += 1;
+            counter.textContent = current;
+        }, 30000); // 30 seconds
+    });
 }
 
 // =======================

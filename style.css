@@ -215,6 +215,39 @@ nav.primary-nav a:hover::after {
         display: flex;
         align-items: center;
         justify-content: center;
+        background: rgba(255, 255, 255, 0.15);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        padding: 8px 16px;
+        color: var(--white);
+        font-weight: 600;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: var(--transition);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        width: auto;
+        height: auto;
+        position: relative;
+    }
+
+    .nav-toggle::before,
+    .nav-toggle::after,
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+        display: none;
+    }
+
+    .nav-toggle::after {
+        content: "Menu";
+        display: block;
+    }
+
+    .nav-toggle:hover {
+        background: rgba(255, 255, 255, 0.25);
+        border-color: var(--accent);
+        transform: scale(1.05);
     }
 
     nav.primary-nav {
