@@ -57,28 +57,59 @@ function openWhatsApp() {
 
 
 // =======================
-// Animation on Scroll
+// Animation on Scroll (Optimized with Intersection Observer)
 // =======================
 const sections = document.querySelectorAll("section, .manifesto-box, #about, #commitment li");
 
-const revealOnScroll = () => {
-    sections.forEach(sec => {
-        const top = sec.getBoundingClientRect().top;
-        if (top < window.innerHeight - 120) {
-            sec.style.opacity = "1";
-            sec.style.transform = "translateY(0)";
+// Check for reduced motion preference
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Performance optimization: Use Intersection Observer for better performance
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+            // Stop observing once revealed
+            revealObserver.unobserve(entry.target);
         }
     });
-};
+}, {
+    threshold: 0.1,
+    rootMargin: '50px 0px -50px 0px'
+});
 
+// Initialize sections with performance considerations
 sections.forEach(sec => {
     sec.style.opacity = "0";
     sec.style.transform = "translateY(30px)";
-    sec.style.transition = "0.8s ease-out";
+    sec.style.transition = prefersReducedMotion ? "none" : "0.8s ease-out";
+
+    // Only observe if user doesn't prefer reduced motion
+    if (!prefersReducedMotion) {
+        revealObserver.observe(sec);
+    } else {
+        // Immediately show content for users who prefer reduced motion
+        sec.style.opacity = "1";
+        sec.style.transform = "translateY(0)";
+    }
 });
 
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll(); // run once on load
+// Fallback for browsers without Intersection Observer
+if (!('IntersectionObserver' in window)) {
+    const revealOnScroll = () => {
+        sections.forEach(sec => {
+            const top = sec.getBoundingClientRect().top;
+            if (top < window.innerHeight - 120) {
+                sec.style.opacity = "1";
+                sec.style.transform = "translateY(0)";
+            }
+        });
+    };
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll(); // run once on load
+}
 
 // =======================
 // Vote banner pulse animation (always visible)

@@ -290,12 +290,14 @@ nav.primary-nav a:hover::after {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, var(--primary-darker) 100%);
+    background: url('assets/images/hero.jpeg') no-repeat center center / cover;
     position: relative;
     color: var(--white);
     padding: 60px 24px;
     gap: 32px;
     overflow: hidden;
+    /* Performance optimization: will-change for smooth animations */
+    will-change: transform;
 }
 
 #hero::before {
@@ -318,7 +320,7 @@ nav.primary-nav a:hover::after {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.35);
+    background: rgba(0,0,0,0.5);
     z-index: 0;
 }
 

@@ -1,5 +1,26 @@
-# TODO List for Task: Update Website for 2025 Elections
+# Website Design Improvements - Performance & Mobile Enhancements
 
-- [x] Remove "Commitment" and "Conclusion" links from the navigation menu in index.html
-- [x] Update voting date references in index.html from December 18, 2024 to December 18, 2025
-- [x] Update countdown date in script.js from 2024-12-18 to 2025-12-18
+## Performance Optimizations
+- [ ] Implement lazy loading for images
+- [ ] Optimize backdrop-filter effects on mobile devices
+- [ ] Add intersection observer for scroll-triggered animations
+- [ ] Reduce animation complexity on low-performance devices
+
+## Mobile Experience Improvements
+- [ ] Increase tap target sizes for better touch interaction
+- [ ] Implement swipe gestures for manifesto section navigation
+- [ ] Enhance mobile navigation with better touch feedback
+- [ ] Add pull-to-refresh functionality
+- [ ] Optimize mobile scrolling performance
+
+## Interactive Enhancements
+- [ ] Add smooth section transitions with fade-in effects
+- [ ] Enhance button active states and touch feedback
+- [ ] Improve focus indicators for accessibility
+- [ ] Add micro-interactions for better user engagement
+
+## Testing & Validation
+- [ ] Test all improvements across different devices
+- [ ] Validate performance improvements with Lighthouse
+- [ ] Ensure accessibility compliance
+- [ ] Test touch interactions on mobile devices
