@@ -1,7 +1,7 @@
 // =======================
 // Smooth Scrolling
 // =======================
-document.querySelectorAll("nav a, .btn, .btn2, .btn-whatsapp, .vote-button").forEach(link => {
+document.querySelectorAll("nav a, .btn, .btn2, .btn-whatsapp, .vote-button, .news-link").forEach(link => {
     link.addEventListener("click", function(e) {
         if (this.getAttribute("href").startsWith("#")) {
             e.preventDefault();
@@ -325,8 +325,8 @@ function animateLiveSupporterCount() {
         localStorage.setItem('frank_adriano_visited_ids', JSON.stringify(visitedVisitors));
     }
 
-    // Set minimum count to show momentum (increased to 500)
-    const initialTarget = Math.max(globalCount, 500);
+    // Set minimum count to show momentum (starting from 1344)
+    const initialTarget = Math.max(globalCount, 1344);
     let current = 0;
 
     // Function to animate to a target
@@ -350,6 +350,142 @@ function animateLiveSupporterCount() {
             current += 1;
             counter.textContent = current;
         }, 30000); // 30 seconds
+    });
+
+    // Handle join button click to increment count
+    const joinBtn = document.getElementById('joinBtn');
+    if (joinBtn) {
+        joinBtn.addEventListener('click', () => {
+            current += 1;
+            counter.textContent = current;
+        });
+    }
+}
+
+// =======================
+// NEWS LOAD MORE FUNCTIONALITY
+// =======================
+function setupNewsLoadMore() {
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const newsContainer = document.getElementById('news-container');
+    if (!loadMoreBtn || !newsContainer) return;
+
+    let allNews = [];
+    let currentIndex = 0;
+    const itemsPerLoad = 3;
+
+    // Function to parse date string "DD Month YYYY" to Date object
+    function parseDate(dateString) {
+        const months = {
+            'January': 0, 'February': 1, 'March': 2, 'April': 3, 'May': 4, 'June': 5,
+            'July': 6, 'August': 7, 'September': 8, 'October': 9, 'November': 10, 'December': 11
+        };
+
+        const parts = dateString.split(' ');
+        if (parts.length !== 3) return new Date(0); // Invalid date
+
+        const day = parseInt(parts[0]);
+        const month = months[parts[1]];
+        const year = parseInt(parts[2]);
+
+        if (isNaN(day) || month === undefined || isNaN(year)) return new Date(0);
+
+        return new Date(year, month, day);
+    }
+
+    // Load news from JSON file
+    fetch('campaign-updates/updates.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to load news updates');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Sort by date descending (newest first)
+            allNews = data.sort((a, b) => parseDate(b.date) - parseDate(a.date));
+
+            // Load initial batch
+            loadMoreNews();
+        })
+        .catch(error => {
+            console.error('Error loading news:', error);
+            // Fallback to hardcoded news if JSON fails
+            allNews = [
+                {
+                    image: 'assets/images/profile.jpeg',
+                    title: 'Victory Celebration Planned',
+                    date: 'January 5, 2025',
+                    author: 'Frank Adriano Campaign',
+                    description: 'Join us for a victory celebration event following the successful election. All supporters welcome!',
+                    link: '#connect',
+                    linkLabel: 'RSVP for Celebration'
+                }
+            ];
+            loadMoreNews();
+        });
+
+    function loadMoreNews() {
+        // Load next batch of news items
+        const nextItems = allNews.slice(currentIndex, currentIndex + itemsPerLoad);
+
+        nextItems.forEach(item => {
+            const newsCard = document.createElement('article');
+            newsCard.className = 'news-card';
+
+            newsCard.innerHTML = `
+                <img src="${item.image}" alt="${item.title}" class="news-image" loading="lazy">
+                <div class="news-content">
+                    <h3 class="news-title">${item.title}</h3>
+                    <p class="news-date">${item.date}</p>
+                    <p class="news-author">By ${item.author}</p>
+                    <p class="news-description">${item.description}</p>
+                    <div class="news-full-content" style="display:none;">${item.content.replace(/\n/g, '<br>')}</div>
+                    <button class="read-more-btn">${item.linkLabel || 'Read More'}</button>
+                </div>
+            `;
+
+            newsContainer.appendChild(newsCard);
+        });
+
+        currentIndex += itemsPerLoad;
+
+        // Hide button if no more items to load
+        if (currentIndex >= allNews.length) {
+            loadMoreBtn.style.display = 'none';
+        }
+
+        // Smooth scroll to newly loaded content
+        const lastNewCard = newsContainer.lastElementChild;
+        if (lastNewCard) {
+            lastNewCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    }
+
+    loadMoreBtn.addEventListener('click', loadMoreNews);
+}
+
+// =======================
+// NEWS READ MORE FUNCTIONALITY
+// =======================
+function setupNewsReadMore() {
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('read-more-btn')) {
+            e.preventDefault();
+            const newsCard = e.target.closest('.news-card');
+            const fullContent = newsCard.querySelector('.news-full-content');
+            const isExpanded = fullContent.style.display === 'block';
+
+            if (isExpanded) {
+                fullContent.style.display = 'none';
+                e.target.textContent = 'Read More';
+            } else {
+                fullContent.style.display = 'block';
+                e.target.textContent = 'Read Less';
+                // Smooth scroll to the expanded content
+                fullContent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
     });
 }
 
@@ -416,6 +552,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMobileFab();
     setupShareButton();
     initLegacyToggle();
+    setupNewsLoadMore();
+    setupNewsReadMore();
 });
 // end of DOMContentLoaded initialization
 
